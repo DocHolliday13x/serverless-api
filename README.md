@@ -49,4 +49,3 @@ for now I have none and do not require one
 #### UML
 
 - ![UML Diagram](./public/lab18Whiteboard.png)
-
