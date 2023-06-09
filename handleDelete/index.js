@@ -1,16 +1,17 @@
 const dynamoose = require('dynamoose');
 
 const schema = new dynamoose.Schema({
-  "id": String,
-  "name": String,
+  id: String,
+  name: String,
 });
 
 const friendModel = dynamoose.model('friends', schema);
 
 exports.handler = async(event) => {
-  let id = event?.pathParameters?.id
+  // let id = event?.pathParameters?.id // doesn't like my chained operator ?.
+  let id = event && event.pathParameters && event.pathParameters.id;
 
-  const response = {statusCode: null}
+  const response = {statusCode: null};
   try{
 
     await friendModel.delete(id);
@@ -18,7 +19,7 @@ exports.handler = async(event) => {
     response.statusCode = 200;
 
   }catch(e){
-    console.log(e.message)
+    console.log(e.message);
     response.statusCode = 500;
   }
 
