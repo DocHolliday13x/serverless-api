@@ -1,4 +1,4 @@
-const dynamoose = require("dynamoose");
+const dynamoose = require('dynamoose');
 
 const schema = new dynamoose.Schema({
   id: String,
@@ -8,7 +8,7 @@ const schema = new dynamoose.Schema({
 const friendModel = dynamoose.model('friends', schema);
 
 exports.handler = async (event) => {
-  console.log('Body -------->', event.body)
+  console.log('Body -------->', event.body);
 
   const response = {
     statusCode: null,
